@@ -1,0 +1,33 @@
+New Features in Django4
+Django 4 introduces a collection of new features, including some 
+backward-incompatible changes, while deprecating other features and eliminating
+old functionalities. Being a time-based release, there is no drastic change in 
+Django 4, and it is easy to migrate Django 3 applications to the 4.1 release. 
+While Django 3 included for the first time Asynchronous Server Gateway Interface (ASGI) 
+support, Django 4.0 adds several features such as functional unique constraints
+for Django models, built-in support for caching data with Redis, a new default 
+timezone implementation using the standard Python package zoneinfo, a new 
+scrypt password hasher, template-based rendering for forms, as well as other 
+new minor features. Django 4.0 drops support for Python 3.6 and 3.7. It also 
+drops support for PostgreSQL 9.6, Oracle 12.2, and Oracle 18c. Django 4.1 
+introduces asynchronous handlers for class-based views, an asynchronous ORM 
+interface, new validation of model constraints and new templates for rendering 
+forms. The 4.1 version drops support for PostgreSQL 10 and MariaDB 10.2.
+
+Django components are loosely coupled, which means they can be managed 
+independently. This helps separate the responsibilities of the different layers
+of the framework; the database layer knows nothing about how the data is 
+displayed, the template system knows nothing about web requests, and so on.
+
+Django offers maximum code reusability by following the 
+DRY (don’t repeat yourself) principle. Djan- go also fosters rapid development 
+and allows you to use less code by taking advantage of Python’s dynamic 
+capabilities, such as introspection.
+
+
+
+
+
+
+
+

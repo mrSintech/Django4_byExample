@@ -1,5 +1,10 @@
+from zlib import DEF_BUF_SIZE
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
+
+# NOTE: The sqlmigrate command takes the migration names and returns their SQL
+# without executing it. e.g python3 manage.py sqlmigrate blog 0001
 
 
 class Post(models.Model):
@@ -14,7 +19,16 @@ class Post(models.Model):
     # and Post.Status.values to obtain the actual values of the choices.
 
     title = models.CharField(max_length=255)
+
+    # slug fields imply index by default
     slug = models.SlugField(max_length=255)
+
+    # Foreignkeys imply index on author_id by default
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='blog_posts'
+    )
     body = models.TextField()
 
     publish = models.DateTimeField(default=timezone.now)  # tz aware
@@ -39,6 +53,7 @@ class Post(models.Model):
         indexes = [
             models.Index(fields=['-publish'])
         ]
+        db_table = "post"  # specify custom name for table on database
 
     def __str__(self):
         return self.title
